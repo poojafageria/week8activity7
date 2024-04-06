@@ -1,34 +1,34 @@
-<!-- updateinventory.ejs -->
+<!-- updatecontacts.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Update Inventory</title>
+  <title>Update Contacts</title>
   <link rel="stylesheet" href="/css/styles.css" />
   <!-- Link to external stylesheet -->
 </head>
 <body>
   <nav class="navbar">
-    <h1>My Inventorys</h1>
+    <h1>My Contacts</h1>
     <div class="links">
       <a href="/">Home</a>
-      <a class="new-item-link" href="/addinventory">New Inventory</a>
+      <a class="new-item-link" href="/addcontacts">New Contacts</a>
     </div>
   </nav>
 
   <div class="content">
     <div class="update">
-      <h2>Update Inventory</h2>
-      <form action="/single-inventory/<%= inventory._id %>?_method=PUT" method="POST">
+      <h2>Update Contacts</h2>
+      <form action="/single-contacts/<%= contacts._id %>?_method=PUT" method="POST">
         <label>Title:</label>
-        <input type="text" value="<%= inventory.title %>" id="title" name="title" required />
+        <input type="text" value="<%= contacts.title %>" id="title" name="title" required />
 
         <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" required><%= inventory.description %></textarea>
+        <textarea id="description" name="description" rows="4" required><%= contacts.description %></textarea>
 
         <label for="targetDate">Target Date:</label>
-        <input type="date" id="targetDate" name="targetDate" required value="<%= inventory.targetDate.to ISOString().substr(0, 10) %>" />
+        <input type="date" id="targetDate" name="targetDate" required value="<%= contacts.targetDate.to ISOString().substr(0, 10) %>" />
 
         <label>Author:</label>
         <select name="author">
@@ -37,9 +37,9 @@
         </select>
 
         <label for="achieved">Achieved:</label>
-        <input type="checkbox" id="achieved" name="achieved" <% if (inventory.achieved) { %>checked<% } %> />
+        <input type="checkbox" id="achieved" name="achieved" <% if (contacts.achieved) { %>checked<% } %> />
 
-        <button type="submit">Update Inventory</button>
+        <button type="submit">Update Contacts</button>
       </form>
     </div>
   </div>

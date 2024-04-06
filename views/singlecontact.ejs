@@ -1,19 +1,19 @@
-<!-- Define a function to render the inventory -->
-<% function renderInventory(inventory) { %>
+<!-- Define a function to render the contacts -->
+<% function renderContacts(contacts) { %>
     <div class="item-details">
       <article>
-        <h2>Title: <%= inventory.title %></h2>
-        <div><%= inventory.description %></div>
+        <h2>Title: <%= contacts.title %></h2>
+        <div><%= contacts.description %></div>
         <p>
-          <strong>Target Date:</strong> <%= formatDate(inventory.targetDate) %><br />
-          <strong>Achieved:</strong> <%= inventory.achieved %>
+          <strong>Target Date:</strong> <%= formatDate(contacts.targetDate) %><br />
+          <strong>Achieved:</strong> <%= contacts.achieved %>
         </p>
     
         <!-- Update button -->
         <form
           class="action-form"
           method="GET"
-          action="/single-inventory/update/<%= inventory._id %>"
+          action="/single-contacts/update/<%= contacts._id %>"
         >
           <button type="submit" class="update">update</button>
         </form>
@@ -22,7 +22,7 @@
         <form
           class="action-form"
           method="POST"
-          action="/single-inventory/<%= inventory._id %>?_method=DELETE"
+          action="/single-contacts/<%= contacts._id %>?_method=DELETE"
         >
           <button type="submit">delete</button>
         </form>
@@ -44,24 +44,24 @@
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Single Inventory</title>
+        <title>Single Contacts</title>
         <link rel="stylesheet" href="/css/styles.css" />
         <!-- Link to external stylesheet -->
       </head>
       <body>
         <nav class="navbar">
-          <h1>My Inventorys</h1>
+          <h1>My Contactss</h1>
           <div class="links">
             <a href="/">Home</a>
-            <a class="new-item-link" href="/addinventory">New Inventory</a>
+            <a class="new-item-link" href="/addcontacts">New Contacts</a>
           </div>
         </nav>
     
         <div class="content">
           <div class="home">
             <div class="item-list">
-              <% if (inventory) { %> <%= renderInventory(inventory) %> <% } else { %>
-              <p>No inventory found.</p>
+              <% if (contacts) { %> <%= renderContacts(contacts) %> <% } else { %>
+              <p>No contacts found.</p>
               <% } %>
             </div>
           </div>
